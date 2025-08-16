@@ -58,27 +58,37 @@ export default function Index() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto p-4 space-y-8">
-      <ProductGallery images={sampleImages} />
-      <ProductInfo {...sampleProductInfo} />
+    <div className="max-w-5xl mx-auto p-6 space-y-12">
+      {/* Product main section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Left: Gallery */}
+        <ProductGallery images={sampleImages} />
 
-      <div className="flex gap-4">
-        <SizeSelector sizes={sampleSizes} />
-        <ColorSelector colors={sampleColors} />
-        <QuantitySelector />
+        {/* Right: Info + Actions */}
+        <div className="flex flex-col gap-4">
+          <ProductInfo {...sampleProductInfo} />
+
+          <SizeSelector sizes={sampleSizes} />
+          <ColorSelector colors={sampleColors} />
+          <div className="flex gap-2">
+            <QuantitySelector />
+            <AddToCartButton />
+          </div>
+        </div>
       </div>
 
-      <AddToCartButton />
-
+      {/* Tabs Section */}
       <TabSection labels={["Description", "Additional Info", "Reviews"]}>
         <ProductDescription description={sampleDescription} />
         <ProductAdditionalInfo info={sampleAdditionalInfo} />
         <ProductReviews reviews={sampleReviews} />
       </TabSection>
 
-
-      <h2>Related Product</h2>
-      <ProductListPageComponent />
+      {/* Related Products */}
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Related Products</h2>
+        <ProductListPageComponent />
+      </div>
     </div>
   );
 }
