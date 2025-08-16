@@ -16,11 +16,16 @@ const HeaderFooter = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       {/* <div className="flex flex-col min-h-screen"> */}
-      {!isAuthPage && <Navbar />}
+      {/* TODO: Uncomment when everyhting works */}
+      {/* {!isAuthPage && <Navbar />} */}
 
       {/* This makes children fill the remaining space */}
       {/* <div className="flex flex-1 overflow-hidden"> */}
-      {children}
+      <div className={`py-24 relative min-h-screen bg-gray-50`}>
+        <div className="w-full max-w-7xl px-4 md:px-5 lg:px-6 mx-auto">
+          {children}
+        </div>
+      </div>
       {/* </div> */}
 
       {!isAuthPage && <Footer />}
